@@ -10,9 +10,9 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        }
+        use: [
+          {loader: "babel-loader"},
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -20,8 +20,6 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-            // you can specify a publicPath here
-            // by default it uses publicPath in webpackOptions.output
               hmr: process.env.NODE_ENV === 'development',
             },
           },
