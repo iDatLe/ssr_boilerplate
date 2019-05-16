@@ -17,6 +17,7 @@ const renderContent = (req, res) => {
     <!doctype html>
     <html lang='en'>
       <head>
+        <meta charset="UTF-8" />
         <title>Dat Le's Portfolio</title>
         <link rel="stylesheet" href="/styles.css">
       </head>
@@ -27,6 +28,7 @@ const renderContent = (req, res) => {
     </html>
   `
   );
+
 }
 
 export default renderContent;

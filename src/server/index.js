@@ -13,8 +13,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(require("webpack-dev-middleware")(compiler, {
         noInfo: true, publicPath: webpackConfig.output.publicPath
     }));
-    app.use(require('webpack-hot-middleware')(compiler))
-
+    app.use(require("webpack-hot-middleware")(compiler))
 } else if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'dist')))
 }
