@@ -11,23 +11,43 @@ const renderContent = (req, res) => {
     </StaticRouter>
   );
 
-  res.status(200);
-  res.send(
-  `
-    <!doctype html>
-    <html lang='en'>
-      <head>
-        <meta charset="UTF-8" />
-        <title>Dat Le's Portfolio</title>
-        <link rel="stylesheet" href="/styles.css">
-      </head>
-      <body>
-        <div id="root">${content}</div>
-        <script src="main.js"></script>
-      </body>
-    </html>
-  `
-  );
+  if (process.env.NODE_ENV === 'development') {
+    res.status(200);
+    res.send(
+    `
+      <!doctype html>
+      <html lang='en'>
+        <head>
+          <meta charset="UTF-8" />
+          <title>Dat Le's Portfolio</title>
+          <link rel="stylesheet" href="/styles.css">
+        </head>
+        <body>
+          <div id="root">${content}</div>
+          <script src="main.js"></script>
+        </body>
+      </html>
+    `
+    );
+  } else if (process.env.NODE_ENV === 'production') {
+    res.status(200);
+    res.send(
+    `
+      <!doctype html>
+      <html lang='en'>
+        <head>
+          <meta charset="UTF-8" />
+          <title>Dat Le's Portfolio</title>
+          <link rel="stylesheet" href="/styles.css">
+        </head>
+        <body>
+          <div id="root">${content}</div>
+          <script src="bundle.js"></script>
+        </body>
+      </html>
+    `
+    );
+  }
 
 }
 

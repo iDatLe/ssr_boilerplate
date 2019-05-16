@@ -6,7 +6,7 @@ const App = () => {
 
   return (
     <div>
-      Welcome!
+      Welcome to the SSR Boilerplate!
     </div>
   )
 }
