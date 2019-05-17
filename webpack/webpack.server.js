@@ -4,14 +4,25 @@ const baseConfig = require('./webpack.config.js');
 const webpackNodeExternals = require('webpack-node-externals');
 
 module.exports = merge(baseConfig, {
-    mode: 'development',
+    target: 'node',
+    externals: [webpackNodeExternals()],
     entry: [
-        path.join(process.cwd(), './src/server/index.js')
+        '@babel/polyfill', 
+        './src/server/index.js'
     ],
     output: {
-        filename: 'server.js',
-        path: path.join(process.cwd(), 'build')
+        filename: 'server.bundle.js',
+        path: path.resolve(__dirname, '../dist')
     },
-    target: 'node',
-    externals: [webpackNodeExternals()]
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: {
+                    loader: 'ignore-loader'
+                }
+            }
+        ]
+    }
 });

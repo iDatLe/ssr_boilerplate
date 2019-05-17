@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.client.js --open",
-    "server": "nodemon --verbose --watch src/server src/server/index.js --exec babel-node",
-    "start:build": "webpack --config webpack/webpack.client.js",
-    "server:build": "webpack --config webpack/webpack.server.js",
-    "prod:build": "webpack --config webpack/webpack.prod.js",
-    "prod:server": "babel src/server/index.js -d dist && node dist/index.js"
+    "server": "DEBUG=http nodemon --verbose --watch src/server src/server/index.js --exec babel-node",
+    "prod:build": "webpack --config webpack/webpack.server.js --mode production && --config webpack/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "ignore-loader": "^0.1.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",

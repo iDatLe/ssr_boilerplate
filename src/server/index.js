@@ -25,6 +25,13 @@ app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+// if (process.env.NODE_ENV === 'development') {
+//     const renderContent = require('./root.js');
+//     app.use(renderContent);
+// } else if (process.env.NODE_ENV === 'production') {
+//     const renderContent = require('../src/server/root.js');
+//     app.use(renderContent);
+// }
 app.use(renderContent);
 
 app.listen(PORT, () => {

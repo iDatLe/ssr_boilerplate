@@ -13,6 +13,7 @@ const App = () => {
   return (
     <div>
       Welcome to the SSR Boilerplate!
+
     </div>
   )
 }

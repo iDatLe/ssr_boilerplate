@@ -6,7 +6,7 @@ module.exports = merge(baseConfig, {
     mode: 'development',
     entry: ['webpack-hot-middleware/client', './src/client/index.js'],
     output: {
-        filename: "main.js", 
+        filename: "bundle.js", 
         path: path.join(__dirname, "../dist"), // have an absolute path
     },
     devtool: 'inline-source-map',
