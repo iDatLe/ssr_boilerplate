@@ -11,7 +11,7 @@ const renderContent = (req, res) => {
     </StaticRouter>
   );
 
-  if (process.env.NODE_ENV === 'development') {
+  // if (process.env.NODE_ENV === 'development') {
     res.status(200);
     res.send(
     `
@@ -19,25 +19,7 @@ const renderContent = (req, res) => {
       <html lang='en'>
         <head>
           <meta charset="UTF-8" />
-          <title>Dat Le's Portfolio</title>
-          <link rel="stylesheet" href="/styles.css">
-        </head>
-        <body>
-          <div id="root">${content}</div>
-          <script src="main.js"></script>
-        </body>
-      </html>
-    `
-    );
-  } else if (process.env.NODE_ENV === 'production') {
-    res.status(200);
-    res.send(
-    `
-      <!doctype html>
-      <html lang='en'>
-        <head>
-          <meta charset="UTF-8" />
-          <title>Dat Le's Portfolio</title>
+          <title>SSR Boilerplate</title>
           <link rel="stylesheet" href="/styles.css">
         </head>
         <body>
@@ -47,7 +29,25 @@ const renderContent = (req, res) => {
       </html>
     `
     );
-  }
+  // } else if (process.env.NODE_ENV === 'production') {
+  //   res.status(200);
+  //   res.send(
+  //   `
+  //     <!doctype html>
+  //     <html lang='en'>
+  //       <head>
+  //         <meta charset="UTF-8" />
+  //         <title>Dat Le's Portfolio</title>
+  //         <link rel="stylesheet" href="/styles.css">
+  //       </head>
+  //       <body>
+  //         <div id="root">${content}</div>
+  //         <script src="bundle.js"></script>
+  //       </body>
+  //     </html>
+  //   `
+  //   );
+  // }
 
 }
 

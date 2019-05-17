@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import renderContent from './root.js';
+import renderContent from './root';
 
 const app = express();
 
